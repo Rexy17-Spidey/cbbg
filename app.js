@@ -466,20 +466,34 @@ function initVoiceSection(config) {
 
   // Gracefully check if audio file is present (works on both http/https and file:// protocols)
   if (audioSrc) {
+    let mounted = false;
     const probe = new Audio();
-    probe.addEventListener("canplaythrough", () => {
+    const handleSuccess = () => {
+      if (mounted) return;
+      mounted = true;
       mountAudioPlayer(audioSrc);
-    }, { once: true });
-    probe.addEventListener("error", () => {
-      showEmptyVoiceState();
-    }, { once: true });
-    // Also timeout fallback in case file isn't found and no error event fires immediately
+    };
+    const handleError = () => {
+      if (!mounted) showEmptyVoiceState();
+    };
+
+    probe.addEventListener("loadedmetadata", handleSuccess, { once: true });
+    probe.addEventListener("canplay", handleSuccess, { once: true });
+    probe.addEventListener("canplaythrough", handleSuccess, { once: true });
+    probe.addEventListener("error", handleError, { once: true });
+
+    probe.src = audioSrc;
+    probe.load();
+
+    if (probe.readyState >= 1) {
+      handleSuccess();
+    }
+
     setTimeout(() => {
-      if (!playerWrap.classList.contains("active")) {
+      if (!mounted) {
         showEmptyVoiceState();
       }
     }, 1500);
-    probe.src = audioSrc;
   } else {
     showEmptyVoiceState();
   }
@@ -493,6 +507,15 @@ function initVoiceSection(config) {
     audio.src = src;
     if (emptyState) emptyState.style.display = "none";
     if (playerWrap) playerWrap.classList.add("active");
+
+    const updateDuration = () => {
+      if (audio.duration && !isNaN(audio.duration) && timeLabel) {
+        timeLabel.textContent = `0:00 / ${formatTime(audio.duration)}`;
+      }
+    };
+    audio.addEventListener("loadedmetadata", updateDuration, { once: true });
+    audio.addEventListener("canplay", updateDuration, { once: true });
+    audio.load();
 
     audio.addEventListener("timeupdate", () => {
       if (audio.duration) {

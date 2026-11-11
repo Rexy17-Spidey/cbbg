@@ -8,11 +8,11 @@
 
 const STORY_CONFIG = {
   // ─── NAMES & IDENTITY ───────────────────────────────────────
-  herName: "my emerald girl",
+  herName: "Bhavya",
   herNickname: "babe",
   yourName: "Your favourite person",
   storyTitle: "A Little World for You ♡",
-  storyTagline: "Made with all my love, just for you.",
+  storyTagline: "Made with all my love, just for Bhavya.",
 
   // ─── COLOUR THEMES ─────────────────────────────────────────
   defaultTheme: "emerald",
@@ -398,8 +398,9 @@ Today, tomorrow, and every day that follows: you are my person. Always.`
   voiceMessage: {
     heading: "A little voice hug from me.",
     subtitle: "Some feelings are easier to say when you can hear my voice.",
-    // Clearly documented audio path: place an MP3 file at this location to activate the live player
     audioPath: "assets/audio/my-voice-message.mp3",
+    audioTitle: "From my heart to yours, Bhavya",
+    audioNote: "Press play whenever you want to hear me say it. ♡",
     emptyStateMessage: "My voice is missing from this little corner for now...\n\nBut I'll leave you something here soon, so whenever you miss hearing me, you can press play and feel a little closer.",
     note: "Tip: Add your audio recording to assets/audio/my-voice-message.mp3, or use the interactive buttons below to test/record on this device."
   },

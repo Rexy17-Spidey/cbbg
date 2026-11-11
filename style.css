@@ -1214,16 +1214,40 @@ button {
   display: block;
 }
 
+/* Poetic Introduction before audio player */
+.voice-poetic-intro {
+  margin: 18px auto 20px;
+  max-width: 480px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.voice-poetic-text {
+  font-family: var(--font-editorial);
+  font-size: 1.18rem;
+  line-height: 1.72;
+  color: var(--theme-ink);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.voice-poetic-sig {
+  font-family: var(--font-handwritten);
+  font-size: 1.65rem;
+  color: var(--theme-accent);
+  display: block;
+}
+
 /* Audio Player Interface */
 .custom-audio-player {
   display: none;
-  background: #FFFDF9;
-  border: 1px solid var(--theme-border);
+  background: radial-gradient(circle at 50% 20%, #FFFDF9 0%, var(--theme-parchment) 100%);
+  border: 1px solid rgba(197, 164, 109, 0.45);
   border-radius: var(--radius-md);
-  padding: 18px 20px;
-  margin: 20px auto;
+  padding: 22px 20px 18px;
+  margin: 18px auto 20px;
   max-width: 480px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(197, 164, 109, 0.2);
 }
 
 .custom-audio-player.active {
@@ -1237,42 +1261,57 @@ button {
 }
 
 .btn-play-pause {
-  width: 46px;
-  height: 46px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  background: var(--theme-primary);
+  background: linear-gradient(135deg, var(--theme-primary), var(--theme-accent));
   color: #FFFFFF;
   display: grid;
   place-items: center;
   font-size: 1.25rem;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(6, 78, 70, 0.25);
+  box-shadow: 0 6px 18px rgba(6, 78, 70, 0.3);
+  border: 1px solid rgba(197, 164, 109, 0.4);
+  transition: var(--transition);
+}
+
+.btn-play-pause:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 22px rgba(6, 78, 70, 0.38), 0 0 16px rgba(197, 164, 109, 0.4);
+}
+
+.btn-play-pause:active {
+  transform: scale(0.95);
 }
 
 .audio-progress-bar {
   flex: 1;
-  height: 6px;
+  height: 8px;
   background: var(--theme-mint);
   border-radius: 10px;
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .audio-progress-fill {
   position: absolute;
   top: 0; left: 0; bottom: 0;
   width: 0%;
-  background: var(--theme-accent);
+  background: linear-gradient(to right, var(--theme-teal), var(--theme-gold));
   border-radius: 10px;
+  transition: width 0.1s linear;
 }
 
 .audio-time-label {
   font-family: var(--font-ui);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--theme-muted);
-  width: 75px;
+  min-width: 75px;
   text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
 }
 
 /* Real-time recording/upload tools retained from original */
