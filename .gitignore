@@ -1,0 +1,9 @@
+﻿.env
+.env.*
+!.env.example
+node_modules/
+.gemini/
+*.log
+Thumbs.db
+.DS_Store
+original-version.html

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#064E46">
+  <title>A Little World for You ♡</title>
+  
+  <!-- Favicon / Touch Icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient floating particles canvas -->
+  <canvas id="starCanvas"></canvas>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       1. OPENING SCREEN: HER FAVOURITE COLOUR
+       ═══════════════════════════════════════════════════════════════ -->
+  <div id="screenColourSelect" role="dialog" aria-modal="true" aria-label="Select your favourite colour">
+    <div class="colour-box">
+      <!-- Vintage Corner Flourishes -->
+      <svg class="corner-ornament co-tl" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M2,2 L12,2 C12,7.5 7.5,12 2,12 L2,2 Z M5,5 L5,7 C7,7 7,5 5,5 Z"/>
+      </svg>
+      <svg class="corner-ornament co-tr" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M2,2 L12,2 C12,7.5 7.5,12 2,12 L2,2 Z M5,5 L5,7 C7,7 7,5 5,5 Z"/>
+      </svg>
+      <svg class="corner-ornament co-bl" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M2,2 L12,2 C12,7.5 7.5,12 2,12 L2,2 Z M5,5 L5,7 C7,7 7,5 5,5 Z"/>
+      </svg>
+      <svg class="corner-ornament co-br" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M2,2 L12,2 C12,7.5 7.5,12 2,12 L2,2 Z M5,5 L5,7 C7,7 7,5 5,5 Z"/>
+      </svg>
+
+      <div class="prompt-lead">Before we begin, babe...</div>
+      <h1>What's your favourite colour?</h1>
+      <p class="subtitle">I made this little world for you. Let's give it your favourite colours first.</p>
+
+      <!-- Swatches -->
+      <div class="swatches-grid" id="swatchesGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Selected Message response -->
+      <div class="colour-response show" id="colourResponse">
+        <div class="glow-note" id="glowNote">Of course, my emerald girl. 💚</div>
+        <div class="compliment" id="compliment">I think this colour suits you. Beautiful, calming, and impossible to forget.</div>
+      </div>
+
+      <!-- Begin Button -->
+      <button class="btn-primary" id="btnBeginStory">
+        <span>Let's begin our little story ♡</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       2. MAIN STORYBOOK WRAPPER
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="story-wrap">
+    
+    <!-- ─── COVER / HERO ──────────────────────────────────────── -->
+    <header class="story-hero" id="top">
+      <div class="kicker">a little world, made just for you</div>
+      <div class="flourish">❦</div>
+      <h1>Welcome to our little world, my love.</h1>
+      <p class="subheading">A little place filled with pieces of us, memories I keep close, words I sometimes struggle to say, and all the love I have for you.</p>
+      
+      <!-- Botanical botanical emblem SVG -->
+      <div class="botanical-divider">
+        <svg viewBox="0 0 24 24">
+          <path d="M12,2 C14,5 16,8 16,11 C16,14.5 13.5,17 12,17 C10.5,17 8,14.5 8,11 C8,8 10,5 12,2 Z"/>
+          <path d="M7,12 C4,13 2,15 2,18 C4.5,18.5 7,17 8,15 Z"/>
+          <path d="M17,12 C20,13 22,15 22,18 C19.5,18.5 17,17 16,15 Z"/>
+        </svg>
+      </div>
+
+      <div class="signature">Made with all my love, just for you. ♡</div>
+      
+      <button class="btn-primary" id="btnTurnPage">
+        <span>Turn the page ↓</span>
+      </button>
+    </header>
+
+    <!-- ─── CHAPTER NAVIGATION ────────────────────────────────── -->
+    <nav class="story-nav-wrap" aria-label="Chapter navigation">
+      <div class="story-nav" id="storyNav">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CHAPTER 1: OUR VIDEO-CALL MEMORIES
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="story-section" id="memories">
+      <div class="section-head">
+        <span class="kicker">chapter one · pieces of us</span>
+        <h2>Little moments I never want to forget.</h2>
+        <p class="intro-p">Some moments are too precious to just let them pass.</p>
+      </div>
+
+      <div class="story-card">
+        <!-- Video Call Photo Grid (Actual real screenshots) -->
+        <div class="video-call-grid" id="videoCallGrid">
+          <!-- Rendered dynamically from assets/images/ -->
+        </div>
+
+        <!-- Poetic Paragraph -->
+        <div class="poetic-box">
+          <p>Sometimes I take screenshots or record our little moments, not because I want to stop time, but because I wish I could keep a little piece of it.
+
+The way you look at me, the way we talk, the random smiles, the laughter, even the ordinary seconds when we're doing absolutely nothing...
+
+I save them because they mean something to me.
+
+One day, when I miss you, I want to be able to open these memories and feel close to you again.
+
+Even when you're behind a screen, you make some of my favourite moments.</p>
+
+          <span class="scrapbook-caption">Little pieces of us, safely kept in my heart. ♡</span>
+        </div>
+
+        <!-- Extra Scrapbook Keepsakes Drawer -->
+        <div class="scrapbook-strip">
+          <button class="btn-soft scrapbook-toggle-btn" id="scrapbookToggle">
+            <span>Open our extra scrapbook keepsakes ✿</span>
+          </button>
+          <div class="scrapbook-drawer" id="scrapbookDrawer">
+            <!-- Rendered dynamically by app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CHAPTER 2: MY FAVOURITE BLACK-AND-WHITE PICTURE OF HER
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="story-section" id="portrait">
+      <div class="bw-editorial">
+        <div class="editorial-tag">chapter two · dedicated portrait</div>
+        <h2>My favourite picture of you.</h2>
+
+        <!-- Large Editorial Frame -->
+        <div class="bw-frame-wrap" id="favouriteBwWrap" tabindex="0" role="button" aria-label="View favourite picture of you">
+          <div class="bw-frame-inner">
+            <img src="assets/images/favourite-bw.jpg" alt="My favourite black-and-white picture of you" loading="lazy">
+          </div>
+        </div>
+
+        <div class="bw-caption">
+          There are so many beautiful pictures of you, but this one has a special place in my heart.
+
+Something about this photograph makes me stop and look at it a little longer.
+
+Maybe it's the simplicity. Maybe it's the way you look. Maybe it's just because it's you.
+
+Even without colours, you somehow make the whole picture feel beautiful.
+
+I don't know how to explain it, babe. I just really, really love this picture of you.
+        </div>
+
+        <span class="bw-handwritten-note">My favourite girl, in my favourite frame. ♡</span>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CHAPTER 3: THE HUG WE DIDN'T GET THAT DAY
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="story-section" id="the-hug">
+      <div class="section-head">
+        <span class="kicker">chapter three · a gentle promise</span>
+        <h2>About that hug, babe...</h2>
+      </div>
+
+      <div class="story-card hug-card">
+        <!-- Delicate hands reaching illustration SVG -->
+        <div class="hug-illustration">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="46" fill="rgba(220, 238, 230, 0.35)" stroke="var(--theme-gold-light)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <!-- Left hand reaching gently -->
+            <path d="M22 62 C30 58 38 52 46 48 C49 46.5 50 43 47 41 C43 38 35 43 28 47" stroke="var(--theme-primary)" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M46 48 C50 47 52 44 49 42 C45 40 37 45 30 50" stroke="var(--theme-primary)" stroke-width="2" stroke-linecap="round"/>
+            <!-- Right hand reaching to meet -->
+            <path d="M78 62 C70 58 62 52 54 48 C51 46.5 50 43 53 41 C57 38 65 43 72 47" stroke="var(--theme-accent)" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M54 48 C50 47 48 44 51 42 C55 40 63 45 70 50" stroke="var(--theme-accent)" stroke-width="2" stroke-linecap="round"/>
+            <!-- Glowing heart star between them -->
+            <path d="M50 30 C48 26 42 26 42 31 C42 36 50 41 50 41 C50 41 58 36 58 31 C58 26 52 26 50 30 Z" fill="var(--theme-gold)" opacity="0.9"/>
+            <circle cx="50" cy="20" r="1.5" fill="var(--theme-gold)"/>
+            <circle cx="34" cy="30" r="1.2" fill="var(--theme-accent)"/>
+            <circle cx="66" cy="30" r="1.2" fill="var(--theme-accent)"/>
+          </svg>
+        </div>
+
+        <div class="hug-message">
+          <p>I know you wanted to hug me that day, and I know we couldn't because there were people around.</p>
+          <p>But sweetheart, it's okay. Please don't feel bad about it.</p>
+          
+          <div class="hug-highlight">“We have time, and we have love, both.”</div>
+
+          <p>We don't have to rush our little moments. There will be a day when I can hold you without worrying about who's around, when you can hug me for as long as you want, and neither of us will have to let go too soon.</p>
+          <p>And until that day comes, I want you to know that the hug you couldn't give me that day didn't mean any less to me.</p>
+          <p>I still carry the thought of it with me.</p>
+          <p>We'll have our moment, love. And many, many more after that.</p>
+        </div>
+
+        <button class="btn-primary" id="btnVirtualHug">
+          <span>Sending you a virtual hug ♡</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CHAPTER 4: LOVE LETTERS (OPEN WHEN...)
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="story-section" id="letters">
+      <div class="section-head">
+        <span class="kicker">chapter four · whenever you need me</span>
+        <h2>Letters for you</h2>
+        <p class="intro-p">Sealed with antique gold, waiting for whenever you need them.</p>
+      </div>
+
+      <div class="story-card">
+        <!-- 6 Envelopes Grid -->
+        <div class="envelopes-grid" id="envelopesGrid">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CHAPTER 5: PERSONAL VOICE MESSAGE SECTION
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="story-section" id="voice">
+      <div class="section-head">
+        <span class="kicker">chapter five · a hug for your ears</span>
+        <h2>A little voice hug from me.</h2>
+        <p class="intro-p">Some feelings are easier to say when you can hear my voice.</p>
+      </div>
+
+      <div class="story-card voice-card">
+        <div class="voice-icon-wrap">
+          <span>🎙️</span>
+        </div>
+
+        <!-- Emerald Audio Waveform graphic -->
+        <div class="waveform-container" id="voiceWaveform" aria-hidden="true">
+          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+        </div>
+
+        <!-- Empty Audio State (Default when MP3 is pending) -->
+        <div class="voice-empty-state" id="voiceEmptyState">
+          <p>My voice is missing from this little corner for now...</p>
+          <p style="margin-top: 10px;">But I'll leave you something here soon, so whenever you miss hearing me, you can press play and feel a little closer.</p>
+          <span class="handwritten-promise">Saving this space for my voice note to you ♡</span>
+        </div>
+
+        <!-- Active Audio Player (Mounted when audio file exists) -->
+        <div class="custom-audio-player" id="customAudioPlayer">
+          <div class="audio-controls">
+            <button class="btn-play-pause" id="btnAudioPlay" aria-label="Play audio message">▶</button>
+            <div class="audio-progress-bar" id="audioProgressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+              <div class="audio-progress-fill" id="audioProgressFill"></div>
+            </div>
+            <div class="audio-time-label" id="audioTimeLabel">0:00 / 0:00</div>
+          </div>
+        </div>
+
+        <!-- Preserved Audio Tools Toggle for Local Testing / Live Recording -->
+        <span class="voice-tools-toggle" id="voiceToolsToggle">Or record / upload a voice note here ▼</span>
+        <div class="voice-tools-panel" id="voiceToolsPanel">
+          <p class="small" id="recordStatus" style="margin-bottom: 12px; color: var(--theme-muted); font-size: 0.85rem;">
+            You can record a voice note directly or test an audio file.
+          </p>
+          <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <button class="btn-soft" id="recordBtn">Start recording</button>
+            <button class="btn-soft" onclick="document.getElementById('audioFileInput').click()">Upload audio file</button>
+            <input type="file" id="audioFileInput" accept="audio/*" hidden>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CHAPTER 6: THE MAGIC GARDEN (20 REASONS)
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="story-section" id="garden">
+      <div class="section-head">
+        <span class="kicker">chapter six · botanical happiness</span>
+        <h2>A little garden of love</h2>
+        <p class="intro-p">Tap each delicate bud. A flower and a reason I love you will bloom.</p>
+      </div>
+
+      <div class="story-card garden-card">
+        <div class="garden-counter-box">
+          <span>🌿</span>
+          <span id="gardenCount">Flowers bloomed: 0/20</span>
+        </div>
+
+        <!-- 20 Flower Interactive Grid -->
+        <div class="garden-grid" id="gardenGrid">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+        <!-- Floating Reason Box -->
+        <div class="flower-reason-display">
+          <span class="reason-text" id="flowerReasonText">Tap any seed above to plant a reason ♡</span>
+        </div>
+
+        <!-- Completion Banner -->
+        <div class="garden-congrats" id="gardenCongrats">
+          <h3>Full Garden Bloomed! 🌸</h3>
+          <p>You've grown an entire garden, but somehow you're still my favourite flower.</p>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <button class="btn-soft" id="btnResetGarden" style="font-size: 0.82rem; padding: 8px 18px;">
+            <span>Plant them again ↺</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CHAPTER 7: THE LOVE TREASURE HUNT
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="story-section" id="treasure">
+      <div class="section-head">
+        <span class="kicker">chapter seven · a tiny adventure</span>
+        <h2>The Love Treasure Hunt</h2>
+        <p class="intro-p">Five little clues. One very loved girl.</p>
+      </div>
+
+      <div class="story-card hunt-card">
+        <div style="font-size: 2.4rem; margin-bottom: 6px;">🗝️</div>
+        
+        <div class="hunt-progress-bar">
+          <div class="hunt-progress-fill" id="huntProgressFill"></div>
+        </div>
+        <div class="small" id="huntClueCount" style="color: var(--theme-muted); font-size: 0.82rem; font-family: var(--font-ui);">Clue 1 of 5</div>
+
+        <!-- Clue Question & Input Box -->
+        <div class="hunt-clue-box" id="huntClueBox">
+          <h3 class="hunt-clue-title" id="huntClueTitle">Clue 1 of 5</h3>
+          <p class="hunt-clue-text" id="huntClueText">Follow the clues at your own pace. If you get stuck, the hint is always there.</p>
+          
+          <div class="hunt-input-wrap">
+            <input type="text" class="hunt-input" id="huntAnswerInput" placeholder="Type your answer here…">
+          </div>
+
+          <div class="hunt-buttons">
+            <button class="btn-primary" id="btnUnlockClue">
+              <span>Unlock next clue 🗝️</span>
+            </button>
+            <button class="btn-soft" id="btnShowHint">
+              <span>Need a hint?</span>
+            </button>
+          </div>
+
+          <div class="hunt-hint-text" id="huntHintText"></div>
+        </div>
+
+        <!-- Won State -->
+        <div class="hunt-won-box" id="huntWonBox">
+          <div style="font-size: 2.8rem; margin-bottom: 10px;">💌</div>
+          <h3 style="color: var(--theme-primary); font-size: 1.6rem; margin-bottom: 10px;">You found the treasure!</h3>
+          <p style="font-size: 1.15rem; line-height: 1.65; color: var(--theme-ink);">
+            Surprise: the greatest treasure isn't at the end of a map. It's the fact that I get to love you. You are my favourite plot twist, meri jaan.
+          </p>
+          <div style="margin-top: 18px;">
+            <button class="btn-primary" onclick="document.getElementById('final-letter').scrollIntoView({behavior:'smooth'})">
+              <span>Read your final letter ♡</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CHAPTER 8: CERTIFIED SILLY MEDICINE (SNEEZE JOKES)
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="story-section" id="giggles">
+      <div class="section-head">
+        <span class="kicker">chapter eight · prescription: laughter</span>
+        <h2>Certified silly medicine</h2>
+        <p class="intro-p">Doctor's orders: one tiny giggle, whenever possible.</p>
+      </div>
+
+      <div class="story-card" style="text-align: center; padding: 32px 20px;">
+        <div style="font-size: 2.2rem; margin-bottom: 8px;">🤧</div>
+        
+        <div class="joke-box">
+          <div class="joke-q" id="jokeQuestion">Why did the tissue blush?</div>
+          <div class="joke-a" id="jokeAnswer">Because it saw you looking cute. 🤧</div>
+        </div>
+
+        <button class="btn-primary" id="btnNextJoke" style="margin-top: 12px;">
+          <span>Another one, please ♡</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CHAPTER 9: MY MESSAGE TO HER (EMOTIONAL CLIMAX)
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="story-section" id="final-letter">
+      <div class="final-letter-card">
+        <div class="climax-wax">♡</div>
+        <div class="kicker">chapter nine · from my heart to yours</div>
+        <h2>One thing I never want you to forget.</h2>
+
+        <div class="climax-body">
+          <p>Babe, I love you so, so much.</p>
+          <p>I can never see you sad and not wish I could take every little thing that's hurting you away.</p>
+          <p>I want to do everything I can to make you feel loved, cared for and happy.</p>
+          <p>You have my attention, my time, and a heart that genuinely wants to make you feel special.</p>
+          <p>You never have to pretend to be happy around me. You don't have to be okay all the time. Even on your tired days, your sad days, your quiet days, I love you just the same.</p>
+          <p>I want to be someone you can come to when the world feels a little too heavy.</p>
+          <p>I want to make memories with you, laugh with you, hold you, listen to your random stories, and experience all those little things that make life beautiful.</p>
+          <p>I don't want you to feel like you have to earn my love or compete for my attention.</p>
+          <p style="font-weight: 500; font-size: 1.35rem; color: var(--theme-primary);">You already have it, babe.</p>
+          <p style="font-weight: 500; font-size: 1.35rem; color: var(--theme-primary);">All of it.</p>
+          <p>I love you a lot. More than I manage to put into words sometimes.</p>
+          <p>And I hope this little world reminds you of that whenever you need it.</p>
+        </div>
+
+        <!-- Animated Handwritten Signature -->
+        <div class="climax-signature-wrap">
+          <span class="sig-lead">Forever cheering for you,</span>
+          <span class="sig-name">Your favourite person. ♡</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FOOTER ────────────────────────────────────────────── -->
+    <footer class="story-footer">
+      <div class="flourish">❦</div>
+      <p>Made slowly, with a very full heart. ♡</p>
+      <span class="footer-signature">For you, always.</span>
+    </footer>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       INTERACTIVE MODALS & OVERLAYS
+       ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- 1. VIRTUAL HUG MODAL -->
+  <div id="hugModal" role="dialog" aria-modal="true" aria-label="Virtual Hug Embrace">
+    <div class="hug-modal-box">
+      <div class="embrace-anim">🫂</div>
+      <h3>Consider yourself hugged, my love.</h3>
+      <p>I'm saving the real one for later. Wrap your arms around yourself right now and take a deep breath — that's from me. ♡</p>
+      <button class="btn-primary" id="hugModalClose">
+        <span>Close with a smile ♡</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 2. OPEN LETTER DISPLAY MODAL -->
+  <div id="letterViewer" role="dialog" aria-modal="true" aria-label="Love Letter">
+    <div class="letter-paper">
+      <div class="letter-top-seal" id="letterTopSeal">🌿</div>
+      <h3 id="letterDisplayTitle">Letter Title</h3>
+      <div class="botanical-divider">
+        <svg viewBox="0 0 24 24"><path d="M12,2 C14,5 16,8 16,11 C16,14.5 13.5,17 12,17 C10.5,17 8,14.5 8,11 C8,8 10,5 12,2 Z"/></svg>
+      </div>
+      <div class="letter-body" id="letterDisplayBody">
+        <!-- Filled dynamically -->
+      </div>
+      <div class="letter-actions">
+        <button class="btn-primary" id="letterCloseBtn">
+          <span>Fold letter back & return ♡</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. LIGHTBOX / PHOTO VIEWER -->
+  <div id="lightboxModal" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+    <button class="lightbox-close-btn" id="lightboxClose" aria-label="Close photo view">✕</button>
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="Photo memory">
+    </div>
+    <div class="lightbox-caption-bar">
+      <h4 id="lightboxTitle">Photo Title</h4>
+      <p id="lightboxCaption">Photo Caption</p>
+    </div>
+  </div>
+
+  <!-- 4. FLOATING ACTIONS (THEME PICKER & BACK TO TOP) -->
+  <div class="floating-actions">
+    <button class="float-btn" id="themePickerToggle" title="Change colour theme" aria-label="Change colour theme">
+      🎨
+    </button>
+    <button class="float-btn" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+      ↑
+    </button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
